@@ -1,6 +1,9 @@
 import { getAppId, createUser, acquireSessionToken, initializeUser } from "./functions.js";
+import dotenv from "dotenv";
 
-const API_KEY = "TEST_API_KEY:b274f8905861b655f707f1930175506e:db19444e9963fac41c90dab8226c0b4e";
+dotenv.config();
+
+const API_KEY = process.env.API_KEY;
 const APP_ID = await getAppId(API_KEY);
 
 console.log("APP_ID:", APP_ID);
