@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js"
+    "first": "node first.js",
+    "second": "node second.js",
+    "dev": "node second.js"
   },
   "author": "Ekin",
   "license": "ISC",

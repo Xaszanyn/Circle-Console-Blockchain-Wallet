@@ -21,6 +21,8 @@ async function post(url, data, key, headers = {}) {
     .catch((error) => console.log(error));
 }
 
+// First
+
 export async function getAppId(key) {
   return (await get("https://api.circle.com/v1/w3s/config/entity", key)).data.appId;
 }
@@ -48,4 +50,39 @@ export async function initializeUser(token, key) {
       }
     )
   ).data.challengeId;
+}
+
+// Second
+
+export async function getWallet(walletId, key) {
+  return (await get(`https://api.circle.com/v1/w3s/wallets/${walletId}/balances`, key)).data;
+}
+
+export async function makeTransaction(userId, userToken, encryptionKey, walletId, tokenId, destinationAddress, key) {
+  let idempotencyKey = uuidv4();
+
+  return {
+    userToken,
+    encryptionKey,
+    idempotencyKey,
+    challengeId: (
+      await post(
+        "https://api.circle.com/v1/w3s/user/transactions/transfer",
+        {
+          idempotencyKey,
+          userId,
+          destinationAddress,
+          refId: "",
+          amounts: ["1"],
+          feeLevel: "HIGH",
+          tokenId,
+          walletId,
+        },
+        key,
+        {
+          "X-User-Token": userToken,
+        }
+      )
+    ).data.challengeId,
+  };
 }
