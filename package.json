@@ -1,0 +1,15 @@
+{
+  "name": "circle",
+  "version": "1.0.0",
+  "description": "Circle API",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "Ekin",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^10.0.0"
+  }
+}
