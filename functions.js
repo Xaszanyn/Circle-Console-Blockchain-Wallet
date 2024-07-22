@@ -29,7 +29,7 @@ export async function createUser(key) {
   let userId = uuidv4();
   return {
     userId,
-    status: (await post("https://api.circle.com/v1/w3s/users", { userId }, key)).status,
+    status: (await post("https://api.circle.com/v1/w3s/users", { userId }, key)).data.status,
   };
 }
 
