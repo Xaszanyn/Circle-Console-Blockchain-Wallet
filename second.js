@@ -1,5 +1,6 @@
-import { getAppId, acquireSessionToken, getWallet, makeTransaction } from "./functions.js";
+import { acquireSessionToken, getWallet, makeTransaction } from "./functions.js";
 import dotenv from "dotenv";
+// import { W3SSdk } from "@circle-fin/w3s-pw-web-sdk";
 
 dotenv.config();
 
@@ -31,3 +32,18 @@ let transaction = await makeTransaction(
 
 console.log("transaction:");
 console.dir(transaction, { depth: null });
+
+// const sdk = new W3SSdk();
+
+// const APP_ID = process.env.APP_ID;
+
+// sdk.setAppSettings({ appId: APP_ID });
+// sdk.setAuthentication({ userToken, encryptionKey });
+
+// sdk.execute(challengeId, (error, result) => {
+//   if (error) {
+//     toast.error(`Error: ${error?.message ?? "Error!"}`);
+//     return;
+//   }
+//   toast.success(`Challenge: ${result?.type}, Status: ${result?.status}`);
+// });

@@ -12,6 +12,7 @@
   "author": "Ekin",
   "license": "ISC",
   "dependencies": {
+    "@circle-fin/w3s-pw-web-sdk": "^1.1.1",
     "dotenv": "^16.4.5",
     "uuid": "^10.0.0"
   }
